@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', 'customerController@list');
-
 
 Route::get('about', function () {
     return view('about');
@@ -21,3 +19,7 @@ Route::get('about', function () {
 Route::get('contact', function () {
     return view('contact');
 });
+
+
+Route::get('/', 'customerController@list');
+Route::post('/', 'customerController@store');

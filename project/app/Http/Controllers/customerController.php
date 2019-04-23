@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use Illuminate\Http\Request;
 
 class customerController extends Controller
@@ -14,6 +15,17 @@ class customerController extends Controller
         return view('index', [
             'customers' => $customers,
         ]);
+        
+    }
+
+
+    public function store(){
+        
+        $customer = new Customer();
+        $customer->name = request('name');
+        $customer->save();
+
+        return back();
         
     }
 }
