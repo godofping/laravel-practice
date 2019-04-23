@@ -4,14 +4,18 @@
 @section('content')
     <h1>Index Page</h1>
 
-    <form action="/" method="POST" class="pt-3 pb-5">
+    <form action="/" method="POST" class="pt-3 pb-5" autocomplete="off">
         <div class="import-group">
-            <input type="text" class="form-control" name="name">
+            <label>Name:</label>
+        <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+            <div> {{ $errors->first('name') }} </div>
+
+            <label>Email:</label>
+            <input type="text" class="form-control" name="email" value="{{ old('email') }}">
+            <div> {{ $errors->first('email') }} </div>
         </div>
 
-        <div>
-            {{ $errors->first('name') }}
-        </div>
+        
 
         <button type="submit" class="btn btn-success mt-2">Add Cusomter</button>
         @csrf
@@ -19,7 +23,7 @@
 
     <h2>Customer List</h2>
     @foreach ($customers as $customer)
-        <li>{{ $customer->name }}</li>
+        <li>{{ $customer->name }} | {{ $customer->name }}</li>
     @endforeach
 
 @endsection
