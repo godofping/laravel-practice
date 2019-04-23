@@ -9,6 +9,10 @@
             <input type="text" class="form-control" name="name">
         </div>
 
+        <div>
+            {{ $errors->first('name') }}
+        </div>
+
         <button type="submit" class="btn btn-success mt-2">Add Cusomter</button>
         @csrf
     </form>
