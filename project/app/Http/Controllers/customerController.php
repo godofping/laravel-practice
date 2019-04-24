@@ -12,7 +12,7 @@ class customerController extends Controller
         $customers = \App\Customer::all();
 
     
-        return view('index', [
+        return view('customers', [
             'customers' => $customers,
         ]);
         

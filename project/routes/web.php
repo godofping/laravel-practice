@@ -11,6 +11,9 @@
 |
 */
 
+Route::get('/', function () {
+    return view('index');
+});
 
 Route::get('about', function () {
     return view('about');
@@ -21,5 +24,5 @@ Route::get('contact', function () {
 });
 
 
-Route::get('/', 'customerController@list');
-Route::post('/', 'customerController@store');
+Route::get('customers', 'customerController@list');
+Route::post('customers', 'customerController@store');

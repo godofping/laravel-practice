@@ -1,5 +1,6 @@
 @extends('internals.layout')
 
+@section('title', 'About Page')
 
 
 @section('content')
