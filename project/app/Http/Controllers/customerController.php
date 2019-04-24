@@ -10,8 +10,8 @@ class customerController extends Controller
     public function list(){
         
 
-        $activeCustomers = \App\Customer::where('active', 1)->get();
-        $inactiveCustomers = \App\Customer::where('active', 0)->get();
+        $activeCustomers = \App\Customer::Active()->get();
+        $inactiveCustomers = \App\Customer::Inactive()->get();
 
     
         return view('customers', compact('activeCustomers','inactiveCustomers'));
@@ -27,11 +27,7 @@ class customerController extends Controller
             'active' => 'required',
         ]);
         
-        $customer = new Customer();
-        $customer->name = request('name');
-        $customer->email = request('email');
-        $customer->active = request('active');
-        $customer->save();
+        Customer::create($data);
 
         return back();
         
